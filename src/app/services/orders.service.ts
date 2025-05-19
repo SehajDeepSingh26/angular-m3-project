@@ -32,7 +32,7 @@ export class OrdersService {
 
     getOrders(){
         const uid = this.auth.getUid();
-        return this.http.get(`${dbUrl}/orders.json`);
+        return this.http.get(`${dbUrl}/orders/${uid}.json`);
     }
     getManageOrders(){
         return this.http.get(`${dbUrl}/manageorder.json`);
