@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit {
         this.cartItemIds = new Set(currcart.map(
             (item:any) => item.id
         ))
-        console.log(this.cartItemIds)
+        // console.log(this.cartItemIds)
     }
 
     addTocart(item: any){
-        console.log(item)
+        // console.log(item)
         this.cartService.addToCart(item);
         this.cartItemIds.add(item.id)
     }

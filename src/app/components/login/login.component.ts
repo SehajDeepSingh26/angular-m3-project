@@ -16,7 +16,7 @@ export class LoginComponent {
     login(){
         this.auth.login(this.email, this.password).subscribe({
             next: () => {
-                console.log("User logged In !!")
+                // console.log("User logged In !!")
                 this.router.navigate(['/home'])
             },
             error: () => {

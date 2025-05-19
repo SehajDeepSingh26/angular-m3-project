@@ -21,7 +21,7 @@ export class RegisterComponent {
     onRegister(){
         this.auth.register(this.email, this.password, this.name, this.role).subscribe({
             next: () => {
-                console.log("User registered");
+                // console.log("User registered");
                 
                 this.router.navigate(['/login']);
             }
