@@ -28,9 +28,9 @@ export class ProductService {
         )
     }
 
-    addProduct(name:string, price: number, qty: number){
+    addProduct(name:string, price: number, qty: number, image: string){
         return this.http.post(`${dbUrl}/products.json`, {
-            name, price, qty
+            name, price, qty, image
         })
     }
 

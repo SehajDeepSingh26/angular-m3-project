@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import User from 'src/app/models/User.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html'
+    selector: 'app-profile',
+    templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit{
-    user = {
+export class ProfileComponent implements OnInit {
+    user: User = {
         name: '',
         email: '',
         phone: '',
@@ -20,12 +21,13 @@ export class ProfileComponent implements OnInit{
     ngOnInit(): void {
         this.profile.getUserProfile().subscribe((res: any) => {
             // console.log(res)
-            if(res){
-                this.user = res}
-        })    
+            if (res) {
+                this.user = res
+            }
+        })
     }
 
-    updateProfile(){
+    updateProfile() {
         this.profile.updateUserprofile(this.user).subscribe({
             next: () => {
                 this.router.navigate(['/home'])

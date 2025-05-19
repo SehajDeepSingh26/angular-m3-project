@@ -3,6 +3,8 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { HtmlParser } from '@angular/compiler';
+import User from '../models/User.model';
+import { Observable } from 'rxjs';
 
 const dbUrl = environment.firebaseConfig.dbUrl;
 
@@ -20,7 +22,7 @@ export class ProfileService {
     return res;
   }
 
-  updateUserprofile(data: any){
+  updateUserprofile(data: User){
     const uid = this.auth.getUid();
     return this.http.put(`${dbUrl}/users/${uid}.json`, data)
   }

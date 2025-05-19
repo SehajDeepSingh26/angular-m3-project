@@ -19,8 +19,10 @@ export class OrdersService {
         const order = {
             items,
             total,
-            date: new Date().toISOString(),
-            status: "Placed"
+            date: new Date().toISOString().substring(0, 10),
+            status: "Placed",
+            uid,
+            id: ""
         };
         //for admin
         this.http.post(`${dbUrl}/manageorder/${uid}.json`, order).subscribe();
@@ -42,6 +44,6 @@ export class OrdersService {
         this.http.put(`${dbUrl}/manageorder/${uid}/${orderId}.json`, updatedOrder).subscribe()
 
         //^ update in user's order
-        return this.http.put(`${dbUrl}/orders/${uid}/${orderId}.json`, updatedOrder)
+        this.http.put(`${dbUrl}/orders/${uid}/${orderId}.json`, updatedOrder).subscribe()
     }
 }

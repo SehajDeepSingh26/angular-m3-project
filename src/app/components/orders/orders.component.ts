@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Order from 'src/app/models/Order.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrdersService } from 'src/app/services/orders.service';
 
@@ -7,15 +8,15 @@ import { OrdersService } from 'src/app/services/orders.service';
   templateUrl: './orders.component.html'
 })
 export class OrdersComponent implements OnInit{
-    orders:any[] = []
-    manageOrders:any[] = []
+    orders:Order[] = []
+    manageOrders:Order[] = []
     isAdmin:boolean = false;
 
     constructor(private orderService: OrdersService, private auth: AuthService) {}
 
     ngOnInit(): void {
         this.orderService.getOrders().subscribe((data:any) => {
-            const orderArray = []
+            const orderArray:Order[] = []
             for(const key in data){
                 if(data.hasOwnProperty(key))
                     orderArray.push({id: key, ...data[key]});
@@ -27,7 +28,7 @@ export class OrdersComponent implements OnInit{
         this.isAdmin = this.auth.isAdmin()
 
         this.orderService.getManageOrders().subscribe((data:any) => {
-            const manageOrderArray = []
+            const manageOrderArray:Order[] = []
             for(const userid in data){
                 if(data.hasOwnProperty(userid)){
                     const userOrders = data[userid];
@@ -48,6 +49,6 @@ export class OrdersComponent implements OnInit{
     changeStatus(order:any){
         const updatedOrder = {...order, status: order.status}
 
-        this.orderService.updateOrderStatus(order.uid, order.id, updatedOrder).subscribe()
+        this.orderService.updateOrderStatus(order.uid, order.id, updatedOrder)
     }
 }

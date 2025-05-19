@@ -4,15 +4,24 @@
     <div class="grid grid-cols-2 gap-6">
         <div *ngFor="let prod of products"
             class="border-2 border-black rounded-3xl shadow-lg p-4 bg-white hover:shadow-xl transition-shadow">
-            <h3 class="font-semibold text-lg text-[#333] mb-2">{{prod.name}} </h3>
-            <p class="text-[#666] mb-4">
-                Price: <span class="text-[#d08700] font-bold"> {{prod.price}} </span>
-            </p>
+            <div class="flex justify-between">
+                <div>
+                    <h3 class="font-semibold text-lg text-[#333] mb-2">{{prod.name}} </h3>
+                    <p class="text-[#666] mb-4">
+                        Price: <span class="text-[#d08700] font-bold"> ₹{{prod.price}} </span>
+                    </p>
+                    <p class="text-[#666] mb-4">
+                        Quantity: <span class="text-[#d08700] font-bold"> {{prod.qty}} </span>
+                    </p>
+                </div>
+                <div>                    
+                    <img [src]='prod.image' class="w-48 h-32 " alt="Image">
+                </div>
+            </div>
             <div class="flex justify-center">
-                <button (click)="addTocart(prod)"
-                    [disabled]="isAddedTocart(prod.id)"
+                <button (click)="addTocart(prod)" [disabled]="isAddedTocart(prod.id!)"
                     class="px-4 py-2 bg-[#5ee9b5] hover:bg-[#3cd59a] text-white font-semibold rounded-xl transition-colors">
-                    {{!isAddedTocart(prod.id) ? "Add To Cart" : "Added"}}
+                    {{!isAddedTocart(prod.id!) ? "Add To Cart" : "Added"}}
                 </button>
             </div>
         </div>

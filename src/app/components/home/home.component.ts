@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/Product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomeComponent implements OnInit {
     constructor(private productService: ProductService, private cartService: CartService){
     }
-    products:any[] = []
+    products:Product[] = []
     cartItemIds: Set<string> = new Set();
 
     ngOnInit(): void {
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
     }
 
     addTocart(item: any){
+        console.log(item)
         this.cartService.addToCart(item);
         this.cartItemIds.add(item.id)
     }
