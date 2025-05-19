@@ -1,0 +1,11 @@
+<div class="mt-6 border">
+    <h2 class="text-xl mb-4">Complete Your profile</h2>
+
+    <input type="text" placeholder="Name" [(ngModel)]="user.name">
+    <input type="email" placeholder="email" [(ngModel)]="user.email">
+    <input type="number" placeholder="phone" [(ngModel)]="user.phone" pattern="[0-9]{10}">
+    <input type="text" placeholder="Address" [(ngModel)]="user.address">
+    <input type="text" placeholder="PIN" [(ngModel)]="user.pin" pattern="[0-9]{6}">
+
+    <button type="submit" (click)="updateProfile()">Save</button>
+</div>

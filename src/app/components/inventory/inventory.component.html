@@ -1,0 +1,22 @@
+<div class="p-4">
+    <h2 class="text-xl font-semibold">Inventory management</h2>
+
+    <form (ngSubmit)="onAddProduct()" class="mb-6">
+        <input type="text" placeholder="Enter Product's name" name="name" [(ngModel)]="name" class="border p-3 rounded" required>
+        <input type="number" placeholder="Enter Product's Price" name="price" [(ngModel)]="price" class="border p-3 rounded" required>
+        <input type="number" placeholder="Enter Product's Quantity" name="quantity" [(ngModel)]="qty" class="border p-3 rounded" required>
+
+        <button type="submit" class="btn rounded p-2">Add product</button>
+    </form>
+
+    <!-- ^ product list -->
+    <div *ngFor="let prod of products" class="border o-4 rounded shadow">
+            <h3 class="font-semibold">{{prod.name}} </h3>
+            <p>Price: {{prod.price}} </p>
+            <div class="p-5 flex gap-2">
+                <button (click)="increaseQty(prod.id)">+</button>
+                <span>{{prod.qty}}</span>
+                <button (click)="decreaseQty(prod.id)">-</button>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="p-4" *ngIf="!isAdmin">
+    <h2 class="text-2xl">Your orders</h2>
+    <div *ngFor="let order of orders" class="border p-4 mb-4 rounded">
+        <p>date: {{order.date}} </p>
+        <p>total: {{order.total}} </p>
+        <p>Status: {{order.Status}} </p>
+
+        <div class="mt-2">
+            <p class="font-semibold">Items:</p>
+            <ul class="list-disc ml-6">
+                <li *ngFor="let item of order.items">
+                    {{item.name}} - ${{item.price}} x {{item.qty}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="p-4" *ngIf="isAdmin">
+    <h2 class="text-2xl">Manage orders</h2>
+    <div *ngFor="let order of manageOrders" class="border p-4 mb-4 rounded">
+        <p>date: {{order.date}} </p>
+        <p>total: {{order.total}} </p>
+        <p>Status: {{order.status}} </p>
+        <p>Edit Status: 
+            <select name="status" [(ngModel)]="changedStatus" id="">
+                <option value="Placed">Placed</option>
+                <option value="Processing">Processing</option>
+                <option value="OnTheWay">OnTheWay</option>
+                <option value="Delivered">Delivered</option>
+            </select>    
+            <button (click)="changeStatus()">Submit</button>
+        </p>
+
+
+        <div class="mt-2">
+            <p class="font-semibold">Items:</p>
+            <ul class="list-disc ml-6">
+                <li *ngFor="let item of order.items">
+                    {{item.name}} - ${{item.price}} x {{item.qty}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

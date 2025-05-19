@@ -1,0 +1,12 @@
+<div>
+    <h2 class="text-xl font-semibold mb-4">
+        Login
+    </h2>
+    <input type="email" placeholder="Enter Email" [(ngModel)]="email">
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password">
+
+    <button (click)="login()" class="btn" >Login</button>
+    <p class="text-red-500">{{error}} </p>
+
+    <a routerLink="/register">Register User</a>
+</div>

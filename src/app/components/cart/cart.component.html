@@ -1,0 +1,20 @@
+<div class="p-4">
+    <h2 class="text-2xl">Your cart</h2>
+    <div *ngFor="let item of cartItems; let i=index" class="border p-4 rounded">
+        <div class="flex justify-between">
+            <div>
+
+                <p>{{item.name}} </p>
+                <p>${{item.price}} x {{item.qty}} </p>
+            </div>
+            <div>
+                <button class="btn" (click)="increaseQty(i)">+</button>
+                <span>{{item.qty}} </span>
+                <button class="btn" (click)="decreaseQty(i)">-</button>
+            </div>
+            <button class="text-red-500" (click)="removeItem(i)">X</button>
+        </div>
+    </div>
+    <div class="mt-4 font-bold">Total: ${{total}} </div>
+    <button (click)="placeOrder()" class="btn mt-4 border">Place order</button>
+</div>

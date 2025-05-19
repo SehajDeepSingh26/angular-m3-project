@@ -1,0 +1,13 @@
+<form (ngSubmit)="onRegister()">
+    <input type="text" placeholder="Enter Name" [(ngModel)]="name" name="name" required>
+    <input type="email" placeholder="Enter Email" [(ngModel)]="email" name="email" required>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required>
+
+    <label for="Role">Role</label>
+    <select name="role" [(ngModel)]="role" required="">
+        <option value="user" selected>User</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <button type="submit">Register User</button>
+</form>
