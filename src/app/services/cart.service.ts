@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class CartService {
+export class CartService implements OnInit{
     private cart: any[] = []
     constructor(private products: ProductService) {
         const storedcart = localStorage.getItem("cart");
@@ -12,13 +12,21 @@ export class CartService {
             this.cart = JSON.parse(storedcart);
         }
     }
+    ngOnInit(): void {
+        
+    }
 
     getCart() {
+        const storedcart = localStorage.getItem("cart");
+        if (storedcart) {
+            this.cart = JSON.parse(storedcart);
+        }
         return [...this.cart]
     }
 
     addToCart(item: any) {
         const index = this.cart.findIndex(i => i.id === item.id);
+        // console.log(this.cart)
 
         this.products.getproductQty(item.id).subscribe((res: any) => {
             if (res.qty > 0) {

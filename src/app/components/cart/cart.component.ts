@@ -50,6 +50,9 @@ export class CartComponent implements OnInit {
                 this.calculateTotal();
                 this.cartItems[index].qty--;
             }
+            else{
+                alert("product out of stock ")
+            }
         })
     }
     decreaseQty(index: number) {

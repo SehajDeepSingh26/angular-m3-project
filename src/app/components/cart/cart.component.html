@@ -1,5 +1,5 @@
 <div class="p-6 bg-[#fefbf6] min-h-screen">
-    <h2 class="text-2xl font-bold text-[#5ee9b5] mb-6">Your Cart</h2>
+    <h2 class="text-2xl font-bold text-[#009966] mb-6">Your Cart</h2>
 
     <div *ngFor="let item of cartItems; let i=index"
         class="border-2 border-[#8ec5ff] p-4 rounded-xl mb-4 bg-white shadow-sm">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="mt-6 text-lg font-bold text-[#333]">Total:
-        <span class="text-[#ffdf20]">${{ total }}</span>
+        <span class="text-[#262626]">${{ total }}</span>
     </div>
 
     <button (click)="placeOrder()"

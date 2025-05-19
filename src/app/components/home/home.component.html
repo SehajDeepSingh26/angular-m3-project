@@ -10,8 +10,9 @@
             </p>
             <div class="flex justify-center">
                 <button (click)="addTocart(prod)"
+                    [disabled]="isAddedTocart(prod.id)"
                     class="px-4 py-2 bg-[#5ee9b5] hover:bg-[#3cd59a] text-white font-semibold rounded-xl transition-colors">
-                    Add To Cart
+                    {{!isAddedTocart(prod.id) ? "Add To Cart" : "Added"}}
                 </button>
             </div>
         </div>

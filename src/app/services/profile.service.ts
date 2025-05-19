@@ -16,7 +16,7 @@ export class ProfileService {
   getUserProfile(){
     const uid = this.auth.getUid();
     const res = this.http.get(`${dbUrl}/users/${uid}.json`);
-    console.log("user profile response", res)
+    // console.log("user profile response", res)
     return res;
   }
 

@@ -1,5 +1,7 @@
 # AngularM3Project
 
+Live project: [https://angular-m3-project.web.app](https://angular-m3-project.web.app)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
 
 ## Development server

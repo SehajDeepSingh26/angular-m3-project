@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -8,8 +7,10 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-    constructor(private productService: ProductService, private cartService: CartService){}
+    constructor(private productService: ProductService, private cartService: CartService){
+    }
     products:any[] = []
+    cartItemIds: Set<string> = new Set();
 
     ngOnInit(): void {
         this.productService.getproducts().subscribe((res:any) => {
@@ -21,11 +22,22 @@ export class HomeComponent implements OnInit {
                 }
             }
             this.products = productArray
-        })
+        });
+
+        const currcart = this.cartService.getCart();
+        this.cartItemIds = new Set(currcart.map(
+            (item:any) => item.id
+        ))
+        console.log(this.cartItemIds)
     }
 
     addTocart(item: any){
         this.cartService.addToCart(item);
+        this.cartItemIds.add(item.id)
+    }
+
+    isAddedTocart(id: string){
+        return this.cartItemIds.has(id)
     }
 
 }

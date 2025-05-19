@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit{
 
     ngOnInit(): void {
         this.profile.getUserProfile().subscribe((res: any) => {
-            console.log(res)
+            // console.log(res)
             if(res){
                 this.user = res}
         })    

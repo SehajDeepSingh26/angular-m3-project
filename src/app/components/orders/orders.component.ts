@@ -10,7 +10,6 @@ export class OrdersComponent implements OnInit{
     orders:any[] = []
     manageOrders:any[] = []
     isAdmin:boolean = false;
-    changedStatus: string = "Placed"
 
     constructor(private orderService: OrdersService, private auth: AuthService) {}
 
@@ -22,7 +21,7 @@ export class OrdersComponent implements OnInit{
                     orderArray.push({id: key, ...data[key]});
             }
             this.orders = orderArray
-            console.log(orderArray)
+            // console.log(orderArray)
         })
 
         this.isAdmin = this.auth.isAdmin()
@@ -34,7 +33,8 @@ export class OrdersComponent implements OnInit{
                     const userOrders = data[userid];
                     for(let orderid in userOrders){
                         if(userOrders.hasOwnProperty(orderid)){
-                            manageOrderArray.push({id: orderid, 
+                            manageOrderArray.push({
+                                id: orderid, 
                                 uid:userid, 
                                 ...userOrders[orderid]});
                         }
@@ -45,7 +45,9 @@ export class OrdersComponent implements OnInit{
         })
     }
 
-    changeStatus(){
-        console.log(this.changedStatus)
+    changeStatus(order:any){
+        const updatedOrder = {...order, status: order.status}
+
+        this.orderService.updateOrderStatus(order.uid, order.id, updatedOrder).subscribe()
     }
 }
