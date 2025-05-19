@@ -1,13 +1,25 @@
-<form (ngSubmit)="onRegister()">
-    <input type="text" placeholder="Enter Name" [(ngModel)]="name" name="name" required>
-    <input type="email" placeholder="Enter Email" [(ngModel)]="email" name="email" required>
-    <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required>
+<form (ngSubmit)="onRegister()"
+    class="max-w-md mx-auto mt-10 bg-white shadow-lg p-6 rounded-xl border border-[#8ec5ff] space-y-4">
+    <h2 class="text-2xl font-bold text-center text-[#432dd7]">Register</h2>
 
-    <label for="Role">Role</label>
-    <select name="role" [(ngModel)]="role" required="">
+    <input type="text" placeholder="Enter Name" [(ngModel)]="name" name="name"
+        class="w-full px-4 py-2 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5ee9b5]"
+        required>
+    <input type="email" placeholder="Enter Email" [(ngModel)]="email" name="email"
+        class="w-full px-4 py-2 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5ee9b5]"
+        required>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password"
+        class="w-full px-4 py-2 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5ee9b5]"
+        required>
+
+    <label for="Role" class="block text-[#333] font-semibold mt-2">Role</label>
+    <select name="role" [(ngModel)]="role" required=""
+        class="w-full px-4 py-2 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ffdf20]">
         <option value="user" selected>User</option>
         <option value="admin">Admin</option>
     </select>
 
-    <button type="submit">Register User</button>
+    <button type="submit" class="w-full mt-4 bg-[#5ee9b5] hover:bg-[#00d492] text-black py-2 rounded-lg transition-colors">Register User</button>
+
+    <a routerLink="/login" class="text-[#155dfc] underline mt-4 inline-block text-sm hover:text-[#2b7fff]">Have an account? Login</a>
 </form>

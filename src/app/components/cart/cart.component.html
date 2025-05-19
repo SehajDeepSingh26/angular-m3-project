@@ -1,20 +1,37 @@
-<div class="p-4">
-    <h2 class="text-2xl">Your cart</h2>
-    <div *ngFor="let item of cartItems; let i=index" class="border p-4 rounded">
-        <div class="flex justify-between">
-            <div>
+<div class="p-6 bg-[#fefbf6] min-h-screen">
+    <h2 class="text-2xl font-bold text-[#5ee9b5] mb-6">Your Cart</h2>
 
-                <p>{{item.name}} </p>
-                <p>${{item.price}} x {{item.qty}} </p>
-            </div>
+    <div *ngFor="let item of cartItems; let i=index"
+        class="border-2 border-[#8ec5ff] p-4 rounded-xl mb-4 bg-white shadow-sm">
+        <div class="flex justify-between items-center">
             <div>
-                <button class="btn" (click)="increaseQty(i)">+</button>
-                <span>{{item.qty}} </span>
-                <button class="btn" (click)="decreaseQty(i)">-</button>
+                <p class="font-semibold text-lg text-[#333]">{{ item.name }}</p>
+                <p class="text-[#666] text-sm">${{ item.price }} x {{ item.qty }}</p>
             </div>
-            <button class="text-red-500" (click)="removeItem(i)">X</button>
+
+            <div class="flex items-center space-x-2">
+                <button
+                    class="px-3 py-1 bg-[#5ee9b5] hover:bg-[#45cda0] text-white font-bold rounded-full transition-colors"
+                    (click)="increaseQty(i)">+</button>
+
+                <span class="text-[#333] font-semibold">{{ item.qty }}</span>
+
+                <button
+                    class="px-3 py-1 bg-[#ffdf20] hover:bg-yellow-300 text-[#333] font-bold rounded-full transition-colors"
+                    (click)="decreaseQty(i)">-</button>
+            </div>
+
+            <button class="ml-4 text-red-600 hover:text-red-800 font-semibold text-xl"
+                (click)="removeItem(i)">×</button>
         </div>
     </div>
-    <div class="mt-4 font-bold">Total: ${{total}} </div>
-    <button (click)="placeOrder()" class="btn mt-4 border">Place order</button>
+
+    <div class="mt-6 text-lg font-bold text-[#333]">Total:
+        <span class="text-[#ffdf20]">${{ total }}</span>
+    </div>
+
+    <button (click)="placeOrder()"
+        class="mt-6 w-full bg-[#8ec5ff] hover:bg-[#6db2fa] text-white py-2 rounded-xl font-semibold transition-colors">
+        Place Order
+    </button>
 </div>

@@ -25,4 +25,17 @@ export class LoginComponent {
         })
     }
 
+    user1(){
+        this.email = "user@gmail.com"
+        this.password = "user123"
+    }
+    user2(){
+        this.email = "user2@gmail.com"
+        this.password = "user123"
+    }
+    admin(){
+        this.email = "admin@gmail.com"
+        this.password = "admin123"
+    }
+
 }

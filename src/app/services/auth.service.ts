@@ -61,4 +61,8 @@ export class AuthService {
     isAdmin(){
         return !!localStorage.getItem("role")
     }
+
+    isAuth(){
+        return !!localStorage.getItem("uid")
+    }
 }

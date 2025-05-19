@@ -1,12 +1,29 @@
-<div>
-    <h2 class="text-xl font-semibold mb-4">
-        Login
+<div class="max-w-md mx-auto mt-10 p-6 border-2 border-[#8ec5ff] rounded-2xl shadow-lg bg-white">
+    <h2 class="text-xl font-semibold mb-4 text-[#009966] mb-6 text-center">
+        LOGIN
     </h2>
-    <input type="email" placeholder="Enter Email" [(ngModel)]="email">
-    <input type="password" placeholder="Enter Password" [(ngModel)]="password">
+    <input type="email" placeholder="Enter Email" [(ngModel)]="email"
+        class="w-full px-4 py-2 mb-5 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5ee9b5]">
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password"
+        class="w-full px-4 py-2 border border-[#8ec5ff] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5ee9b5] mb-5">
+        
+        <button (click)="login()"
+        class="w-full mt-4 bg-[#f4a8ff] hover:bg-[#ed6aff] font-semibold text-black py-2 rounded-lg transition-colors">Login</button>
+        <p class="text-red-500 mt-3 text-sm" *ngIf="error">{{error}} </p>
+    
+    <a routerLink="/register" class="text-[#155dfc] underline mt-4 inline-block text-sm hover:text-[#2b7fff]">Don't have an account? Register</a>
 
-    <button (click)="login()" class="btn" >Login</button>
-    <p class="text-red-500">{{error}} </p>
+    <button (click)="user1()"
+        class="w-full mt-4 bg-[#5ee9b5] hover:bg-[#3dd09a] font-semibold text-black py-2 rounded-lg transition-colors">
+        Direct Login - User 1
+    </button>
+    <button (click)="user2()"
+        class="w-full mt-4 bg-[#5ee9b5] hover:bg-[#3dd09a] font-semibold text-black py-2 rounded-lg transition-colors">
+        Direct Login - User 2
+    </button>
+    <button (click)="admin()"
+        class="w-full mt-4 bg-[#ffdf20] hover:bg-[#f0b100] font-semibold text-black py-2 rounded-lg transition-colors">
+        Direct Login - Admin
+    </button>
 
-    <a routerLink="/register">Register User</a>
 </div>

@@ -26,12 +26,15 @@ export class CartService {
                     this.cart[index].qty++;
                 else
                     this.cart.push({ ...item, qty: 1 });
-                this.products.updateProductQty(item.id, -1).subscribe()
+                this.products.updateProductQty(item.id, -1).subscribe() //update inventory in backend
+                localStorage.setItem("cart", JSON.stringify(this.cart))
+            }
+            else{
+                alert("Product is out of stock")
             }
 
         })
 
-        localStorage.setItem("cart", JSON.stringify(this.cart))
     }
 
     clearCart() {
