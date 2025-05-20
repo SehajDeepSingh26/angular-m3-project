@@ -24,9 +24,9 @@ export class OrdersService {
             uid
         };
         //for admin
-        this.http.post(`${dbUrl}/manageorder/${uid}.json`, order).subscribe();
+        return this.http.post(`${dbUrl}/manageorder/${uid}.json`, order)
 
-        return this.http.post(`${dbUrl}/orders/${uid}.json`, order)
+        // return this.http.post(`${dbUrl}/orders/${uid}.json`, order)
     }
 
     getOrders(){
@@ -44,6 +44,6 @@ export class OrdersService {
         this.http.put(`${dbUrl}/manageorder/${uid}/${orderId}.json`, updatedOrder).subscribe()
 
         //^ update in user's order
-        this.http.put(`${dbUrl}/orders/${uid}/${orderId}.json`, updatedOrder).subscribe()
+        // this.http.put(`${dbUrl}/orders/${uid}/${orderId}.json`, updatedOrder).subscribe()
     }
 }
