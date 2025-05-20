@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <button (click)="addTocart(prod)" [disabled]="isAddedTocart(prod.id!)"
+                <button (click)="addTocart(prod)" [disabled]="isAddedTocart(prod.id!) || isAdmin()"
                     class="px-4 py-2 bg-[#5ee9b5] hover:bg-[#3cd59a] text-white font-semibold rounded-xl transition-colors">
                     {{!isAddedTocart(prod.id!) ? "Add To Cart" : "Added"}}
                 </button>

@@ -17,13 +17,13 @@ export class OrdersComponent implements OnInit {
     ngOnInit(): void {
         this.orderService.getOrders().subscribe((data: any) => {
             const orderArray: Order[] = []
-            console.log("------", data)
+            // console.log("------", data)
             for (const key in data) {
                 if (data.hasOwnProperty(key))
                     orderArray.push({ id: key, ...data[key] });
             }
             this.orders = orderArray
-            console.log(orderArray)
+            // console.log(orderArray)
         })
 
         this.isAdmin = this.auth.isAdmin()
@@ -47,7 +47,7 @@ export class OrdersComponent implements OnInit {
             }
 
             this.manageOrders = manageOrderArray
-            console.log(manageOrderArray)
+            // console.log(manageOrderArray)
         })
     }
 

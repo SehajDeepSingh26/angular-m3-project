@@ -41,5 +41,8 @@ export class HomeComponent implements OnInit {
     isAddedTocart(id: string){
         return this.cartItemIds.has(id)
     }
+    isAdmin(){
+        return !!localStorage.getItem("role")
+    }
 
 }
